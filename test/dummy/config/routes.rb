@@ -1,6 +1,6 @@
-Rails.application.routes.draw do
+Dummy::Application.routes.draw do
   resources :posts
-  root to: "posts#index"
+  root :to => "posts#index"
 
-  mount Ckeditor::Engine, at: '/ckeditor'
+  mount Ckeditor::Engine => '/ckeditor'
 end

@@ -1,13 +1,10 @@
 class Ckeditor::PicturesController < Ckeditor::ApplicationController
-  skip_before_filter :verify_authenticity_token, only: :create
 
   def index
     @pictures = Ckeditor.picture_adapter.find_all(ckeditor_pictures_scope)
     @pictures = Ckeditor::Paginatable.new(@pictures).page(params[:page])
 
-    respond_to do |format|
-      format.html { render :layout => @pictures.first_page? }
-    end
+    respond_with(@pictures, :layout => @pictures.first_page?)
   end
 
   def create
@@ -17,11 +14,7 @@ class Ckeditor::PicturesController < Ckeditor::ApplicationController
 
   def destroy
     @picture.destroy
-
-    respond_to do |format|
-      format.html { redirect_to pictures_path }
-      format.json { render :nothing => true, :status => 204 }
-    end
+    respond_with(@picture, :location => pictures_path)
   end
 
   protected
