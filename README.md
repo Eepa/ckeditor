@@ -5,6 +5,8 @@ CKEditor is a ready-for-use HTML text editor designed to simplify web content cr
 
 ## Features
 
+* Downgraded gem version to 4.1.1 in order to avoid cktext_area load error (a bit [like](https://github.com/galetahub/ckeditor/issues/572))
+* Rails rake assets:precompile [issue](https://github.com/galetahub/ckeditor/issues/551) fixed like proposed [by mkaszubowski](https://github.com/mkaszubowski/ckeditor/commits/master)
 * Ckeditor version 4.4.6 (full)
 * Rails 4 integration
 * Files browser
